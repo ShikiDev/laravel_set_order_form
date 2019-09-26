@@ -26,7 +26,8 @@
                 <label for="tariffs">Тариф</label>
                 <select class="form-control" v-model="selectedTariff" id="tariffs" v-on:change="showDeliveryDays">
                     <option value="0" selected>Не выбран</option>
-                    <option v-for="tariff in tariffs" v-bind:value="tariff.id">{{tariff.name}}</option>
+                    <option v-for="tariff in tariffs" v-bind:value="tariff.id">{{tariff.name}} ({{tariff.price}} руб.)
+                    </option>
                 </select>
             </div>
             <div class="form-group" v-if="isDeliveryDaysShow == true">

@@ -1,7 +1,10 @@
 <template>
     <div class="p-3 bg-white">
-        <div class="alert alert-success" v-if="successMessage == true">
-            <strong>Внимание!</strong><span>{{alertMessage}}</span>
+        <div class="alert alert-success alert-dismissible fade show" v-if="alertMessage !== ''">
+            <strong>Внимание!</strong><span> {{alertMessage}}</span>
+            <button type="button" class="close" data-dismiss="alert" v-on:click="" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
         <div class="text-center py-2">
             <h3>Что вы выберите?</h3>
@@ -27,12 +30,7 @@
 
 <script>
     export default {
-        data: function () {
-            return {
-                successMessage: false,
-                alertMessage: ''
-            }
-        },
+        props: ['alertMessage'],
         methods: {
             showOrderForm: function () {
                 this.$parent.switchComponentTo('order');
